@@ -1,0 +1,45 @@
+<head>
+  <title>chat</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="navbar-brand">
+      Welcome to a meteor powered irc
+    </div>
+  </nav>
+  <div class="col-md-8">
+    {{>entryfield}}
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>
+          Messages
+        </h3>
+      </div>
+      <div class="panel-body">
+        {{>messages}}
+      </div>
+    </div>
+  </div>
+</body>
+
+<template name='entryfield'>
+<div class="form-group">
+  <input id="name" class='form-control' placeholder="name" type="text" />
+</div>
+<div class="form-group">
+  <input id="message" class='form-control' placeholder="Your message" type="text" />
+</div>
+</template>
+
+<template name="messages">
+<ul class='list-group'>
+  {{#each messages}}
+  <li class='list-group-item'>
+    <strong>{{name}}</strong>
+    {{message}}
+  </li>
+  {{/each}}
+</ul>
+</template>
