@@ -1,1 +1,10 @@
 /* CSS declarations go here */
+
+li.board-name-display-item:hover {
+  background-color:rgb(40,40, 40);
+  color:rgb(200, 200, 200);
+}
+
+input:hover {
+  border-color:lightblue;
+}

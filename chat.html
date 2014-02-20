@@ -3,18 +3,21 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="navbar-brand">
       Welcome to a meteor powered irc
     </div>
   </nav>
+  <div id="side-menu" class="col-md-2">
+    {{>boards}}
+    {{>boardEntry}}
+  </div>
   <div class="col-md-8">
-    {{>entryfield}}
-
+    {{>entryField}}
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3>
-          Messages
+          {{>currentBoard}}
         </h3>
       </div>
       <div class="panel-body">
@@ -24,7 +27,29 @@
   </div>
 </body>
 
-<template name='entryfield'>
+<template name="currentBoard">
+<div class="current-board-name">
+  {{currentBoard}}
+</div>
+</template>
+
+<template name="boards">
+<ul class="list-group">
+  {{#each boards}}
+  <li class="board-name-display-item list-group-item">
+    {{name}}
+  </li>
+  {{/each}}
+</ul>
+</template>
+
+<template name='boardEntry'>
+<div class="form-group">
+  <input id="board-name" class="form-control" type="text" placeholder="Enter a new board name">
+</div>
+</template>
+
+<template name='entryField'>
 <div class="form-group">
   <input id="name" class='form-control' placeholder="name" type="text" />
 </div>
